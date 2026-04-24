@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CardioInsight Design System — clinical, calm, confident
+   Light clinical theme inspired by modern healthcare UIs.
+   All colors HSL. */
+
+@layer base {
+  :root {
+    /* Surfaces — soft mint/paper background */
+    --background: 180 35% 96%;
+    --foreground: 215 35% 15%;
+
+    --surface: 0 0% 100%;
+    --surface-elevated: 0 0% 100%;
+
+    --paper: 0 0% 100%;
+    --paper-foreground: 215 35% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 35% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 35% 15%;
+
+    /* Primary — clinical teal */
+    --primary: 178 60% 38%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 174 70% 50%;
+
+    /* Ink (deep navy) for buttons & headings */
+    --ink: 215 50% 15%;
+    --ink-foreground: 0 0% 100%;
+
+    /* Secondary — light slate */
+    --secondary: 200 25% 94%;
+    --secondary-foreground: 215 40% 20%;
+
+    --muted: 200 25% 94%;
+    --muted-foreground: 215 15% 45%;
+
+    --accent: 178 50% 92%;
+    --accent-foreground: 178 70% 25%;
+
+    /* Risk semantic tokens */
+    --risk-low: 152 60% 38%;
+    --risk-low-bg: 152 60% 94%;
+    --risk-medium: 32 92% 45%;
+    --risk-medium-bg: 38 90% 94%;
+    --risk-high: 0 70% 50%;
+    --risk-high-bg: 0 70% 96%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 200 25% 88%;
+    --input: 0 0% 100%;
+    --ring: 178 60% 38%;
+
+    --radius: 0.75rem;
+
+    /* Hero (subtle navy radial behind heart graphic) */
+    --gradient-hero: radial-gradient(ellipse at 70% 50%, hsl(178 60% 88% / 0.6), transparent 60%),
+                     linear-gradient(180deg, hsl(180 40% 97%), hsl(180 35% 95%));
+    --gradient-primary: linear-gradient(135deg, hsl(178 60% 38%), hsl(174 70% 50%));
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(180 30% 99%));
+    --gradient-paper: linear-gradient(180deg, hsl(0 0% 100%), hsl(180 25% 99%));
+    --gradient-ink: linear-gradient(180deg, hsl(215 50% 18%), hsl(215 55% 12%));
+
+    /* Shadows — soft clinical */
+    --shadow-glow: 0 0 60px -15px hsl(178 60% 38% / 0.4);
+    --shadow-soft: 0 4px 20px -8px hsl(215 50% 30% / 0.12);
+    --shadow-card: 0 8px 28px -16px hsl(215 50% 30% / 0.18);
+    --shadow-elev: 0 16px 40px -20px hsl(215 50% 25% / 0.22);
+
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --transition-base: 0.3s var(--ease-out);
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 215 35% 15%;
+    --sidebar-primary: 178 60% 38%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 200 25% 94%;
+    --sidebar-accent-foreground: 215 40% 20%;
+    --sidebar-border: 200 25% 88%;
+    --sidebar-ring: 178 60% 38%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  .font-display {
+    font-family: 'Fraunces', Georgia, serif;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+  }
+}
+
+@layer utilities {
+  .bg-hero { background: var(--gradient-hero); }
+  .bg-gradient-primary { background: var(--gradient-primary); }
+  .bg-gradient-card { background: var(--gradient-card); }
+  .bg-gradient-ink { background: var(--gradient-ink); }
+  .bg-paper { background: var(--gradient-paper); color: hsl(var(--paper-foreground)); }
+  .bg-ink { background: hsl(var(--ink)); color: hsl(var(--ink-foreground)); }
+  .text-ink { color: hsl(var(--ink)); }
+
+  .shadow-glow { box-shadow: var(--shadow-glow); }
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .shadow-card { box-shadow: var(--shadow-card); }
+  .shadow-elev { box-shadow: var(--shadow-elev); }
+
+  .text-balance { text-wrap: balance; }
+
+  @keyframes ecg-pulse {
+    0%, 100% { opacity: 0.6; transform: scaleX(1); }
+    50% { opacity: 1; transform: scaleX(1.02); }
+  }
+  .animate-ecg { animation: ecg-pulse 2s ease-in-out infinite; }
+
+  @keyframes float-slow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  .animate-float { animation: float-slow 6s ease-in-out infinite; }
+
+  .risk-low-pill { background: hsl(var(--risk-low-bg)); color: hsl(var(--risk-low)); border: 1px solid hsl(var(--risk-low) / 0.3); }
+  .risk-medium-pill { background: hsl(var(--risk-medium-bg)); color: hsl(var(--risk-medium)); border: 1px solid hsl(var(--risk-medium) / 0.3); }
+  .risk-high-pill { background: hsl(var(--risk-high-bg)); color: hsl(var(--risk-high)); border: 1px solid hsl(var(--risk-high) / 0.3); }
+}
