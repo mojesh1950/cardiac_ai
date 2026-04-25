@@ -11,7 +11,7 @@ const Index = () => {
         <Hero />
         <AssessmentSection />
         <HowItWorks />
-        <ModelComparison />
+        <ModelComparison />   {/* keep it */}
         <Safety />
       </main>
       <Footer />

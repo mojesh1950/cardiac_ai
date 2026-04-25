@@ -48,12 +48,12 @@ export const HowItWorks = () => (
 );
 
 const MODELS = [
-  { name: "Logistic Regression (scratch)", acc: 0.79 },
-  { name: "Decision Tree (scratch)", acc: 0.74 },
-  { name: "ANN (scratch)", acc: 0.81 },
-  { name: "Random Forest (tuned)", acc: 0.91, best: true },
-  { name: "SVM", acc: 0.83 },
-  { name: "XGBoost (tuned)", acc: 0.89 },
+  { name: "Logistic Regression (scratch)", acc: 0.8558 },
+  { name: "Decision Tree (scratch)", acc: 0.753 },
+  { name: "ANN (scratch)", acc: 0.6265 },
+  { name: "Random Forest (tuned)", acc: 0.845 },
+  { name: "SVM", acc: 0.944,best: true },
+  { name: "XGBoost (tuned)", acc: 0.87 },
 ];
 
 export const ModelComparison = () => (
